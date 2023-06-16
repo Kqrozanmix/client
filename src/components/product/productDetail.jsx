@@ -106,7 +106,7 @@ const ProductDetail = () => {
     };
     getInfoweb();
   }, []);
-
+  
   const getDescription = (item) => {
     if (item) {
       return {
@@ -246,7 +246,7 @@ const ProductDetail = () => {
                           Liên hệ
                         </h2>
                         <div className="flex flex-wrap -mx-2 -mb-2">
-                          <a href={zalo}>
+                          <a href={`https://zalo.me/${zalo}`}>
                             <button className="p-1 mb-2 mr-3 bg-blue-800 rounded-full">
                               <SiZalo className="w-6 h-6 text-white" />
                             </button>

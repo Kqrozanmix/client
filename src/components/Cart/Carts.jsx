@@ -11,6 +11,8 @@ import emty from "../images/empty-cart.png";
 // import { useNavigate } from "react-router-dom";
 
 // import { useStateContext } from '../Context/CartContext';
+import { SiZalo } from "react-icons/si";
+import { GrMail } from "react-icons/gr";
 
 const Carts = () => {
   const [totalPrices, setTotalPrices] = useState(0);
@@ -19,6 +21,21 @@ const Carts = () => {
   const [voucher, setVoucher] = useState();
   const [voucherPrices, setVoucherPrices] = useState(0);
   const [voucherTitle, setVoucherTitle] = useState("");
+  const [zalo, setZalo] = useState([]);
+  const [fb, setfb] = useState([]);
+  const [gmail, setGmail] = useState([]);
+  useEffect(() => {
+    const getInfoweb = async () => {
+      await axios
+        .get(`${process.env.REACT_APP_API_URL}info/`)
+        .then((response) => {
+          setZalo(response.data[0].zalo);
+          setfb(response.data[0].facebook);
+          setGmail(response.data[0].gmail);
+        });
+    };
+    getInfoweb();
+  }, []);
 
   const userData = localStorage.getItem("token") || "";
   const [userId, userEmail, userPassword] = userData.split(":");
@@ -60,30 +77,30 @@ const Carts = () => {
     setTotal(total);
   }, [cartData]);
 
-  const vouchers = [
-    {
-      ma: "123",
-      dis: 10000,
-    },
-    {
-      ma: "Ma1",
-      dis: 15000,
-    },
-  ];
+  // const vouchers = [
+  //   {
+  //     ma: "123",
+  //     dis: 10000,
+  //   },
+  //   {
+  //     ma: "Ma1",
+  //     dis: 15000,
+  //   },
+  // ];
 
-  const addVoucher = () => {
-    const existingVoucher = vouchers.find(
-      (vc) => vc.ma.toLowerCase() === voucher.toLowerCase()
-    );
+  // const addVoucher = () => {
+  //   const existingVoucher = vouchers.find(
+  //     (vc) => vc.ma.toLowerCase() === voucher.toLowerCase()
+  //   );
 
-    if (existingVoucher) {
-      setVoucherTitle(existingVoucher.ma);
-      setVoucherPrices(existingVoucher.dis);
-      toast("Voucher đã nhập thành công");
-    } else {
-      toast("Voucher không tồn tại");
-    }
-  };
+  //   if (existingVoucher) {
+  //     setVoucherTitle(existingVoucher.ma);
+  //     setVoucherPrices(existingVoucher.dis);
+  //     toast("Voucher đã nhập thành công");
+  //   } else {
+  //     toast("Voucher không tồn tại");
+  //   }
+  // };
   const handleRemoveFromCart = (id) => {
     dispatch(removeItem(id));
   };
@@ -231,7 +248,7 @@ const Carts = () => {
                         className="w-full bg-gray-100 outline-none appearance-none focus:outline-none active:outline-none"
                       />
                       <button
-                        onClick={addVoucher}
+                        // onClick={addVoucher}
                         className="text-sm flex items-center px-3 py-1 text-white bg-gray-800 rounded-full outline-none md:px-4 hover:bg-gray-700 focus:outline-none active:outline-none"
                       >
                         <svg
@@ -341,16 +358,15 @@ const Carts = () => {
                       </span>
                     </div>
                   </div>
-                  <a href="#">
+                  {/* <a href="#">
                     {" "}
                     <Link to={"/checkout"}>
                       <button class="flex justify-center w-full px-10 py-3 mt-6 font-medium text-white uppercase bg-gray-800 rounded-full shadow item-center hover:bg-gray-700 focus:shadow-outline focus:outline-none">
                         <svg
-                          className="text-white"
+                          className="text-white w-8"
                           aria-hidden="true"
                           data-prefix="far"
                           data-icon="credit-card"
-                          className="w-8"
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 576 512"
                         >
@@ -360,6 +376,65 @@ const Carts = () => {
                           ></path>
                         </svg>
                         <span className="ml-2 mt-1 text-white">Thanh toán</span>
+                      </button>{" "}
+                    </Link>
+                    
+                  </a> */}
+
+                  <div className="lg:px-4 lg:py-2 m-2 text-lg lg:text-xl font-bold text-center text-gray-800">
+                    Liên hệ mua hàng
+                  </div>
+                  <a href="#">
+                    {" "}
+                    <Link to={`https://zalo.me/${zalo}`}>
+                      <button class="flex justify-center w-1/2 ml-auto mr-auto px-10 py-3 mt-6 font-medium text-white uppercase bg-gray-800 rounded-full shadow item-center hover:bg-gray-700 focus:shadow-outline focus:outline-none">
+                        <svg
+                          className="text-white w-8"
+                          aria-hidden="true"
+                          data-prefix="far"
+                          data-icon="credit-card"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 576 512"
+                        >
+                          <path
+                            fill="currentColor"
+                            d="M527.9 32H48.1C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48.1 48h479.8c26.6 0 48.1-21.5 48.1-48V80c0-26.5-21.5-48-48.1-48zM54.1 80h467.8c3.3 0 6 2.7 6 6v42H48.1V86c0-3.3 2.7-6 6-6zm467.8 352H54.1c-3.3 0-6-2.7-6-6V256h479.8v170c0 3.3-2.7 6-6 6zM192 332v40c0 6.6-5.4 12-12 12h-72c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h72c6.6 0 12 5.4 12 12zm192 0v40c0 6.6-5.4 12-12 12H236c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h136c6.6 0 12 5.4 12 12z"
+                          ></path>
+                        </svg>
+                        <span className="ml-2 mt-1 text-white">Zalo</span>
+                      </button>{" "}
+                    </Link>
+                  </a>
+                  <a href="#">
+                    {" "}
+                    <Link to={fb}>
+                      <button class="flex justify-center w-1/2 ml-auto mr-auto px-10 py-3 mt-6 font-medium text-white uppercase bg-gray-800 rounded-full shadow item-center hover:bg-gray-700 focus:shadow-outline focus:outline-none">
+                        <svg
+                          data-icon="facebook"
+                          height="30"
+                          aria-hidden="true"
+                          focusable="false"
+                          data-prefix="fab"
+                          class="fa-facebook"
+                          role="img"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 448 512"
+                        >
+                          <path
+                            fill="currentColor"
+                            d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h137.25V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.27c-30.81 0-40.42 19.12-40.42 38.73V256h68.78l-11 71.69h-57.78V480H400a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48z"
+                          ></path>
+                        </svg>
+                        <span className="ml-2 mt-1 text-white">Facebook</span>
+                      </button>{" "}
+                    </Link>
+                  </a>
+                  <a href="#">
+                    {" "}
+                    <Link to={`mailto:${gmail}`}>
+                      <button class="flex justify-center w-1/2 ml-auto mr-auto px-10 py-3 mt-6 font-medium text-white uppercase bg-gray-800 rounded-full shadow item-center hover:bg-gray-700 focus:shadow-outline focus:outline-none">
+                        <GrMail className="w-7 h-7" />
+                        <span className="ml-2 mt-1 text-white">Email</span>
                       </button>{" "}
                     </Link>
                   </a>

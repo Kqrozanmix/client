@@ -3,7 +3,7 @@ import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import "./header.css";
-import logoNav from "../../images/logo.jpg";
+import logoNav from "../../images/logo.png";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Itop from "../../home/Itop/Itop";

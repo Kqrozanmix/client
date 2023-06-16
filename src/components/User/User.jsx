@@ -90,7 +90,11 @@ const UserProfile = () => {
               <div className="likes">
                 <h1 className="text-sm text-gray-700">Họ và tên</h1>
                 <h2 className="bold-text" style={{ paddingBottom: "20px" }}>
-                  {userName ? userName + " " + userFirstName : <LoadingPage size={32} />}
+                  {userName ? (
+                    userName + " " + userFirstName
+                  ) : (
+                    <LoadingPage size={32} />
+                  )}
                 </h2>
               </div>
               <div className="likes">
@@ -102,16 +106,18 @@ const UserProfile = () => {
               <div className="likes">
                 <h1 className="text-sm text-gray-700">Ngày đăng ký</h1>
                 <h2 className="bold-text" style={{ paddingBottom: "20px" }}>
-                  {userCreate
-                    ? moment(userCreate).format("DD/MM/YYYY")
-                    : <LoadingPage size={32} />}
+                  {userCreate ? (
+                    moment(userCreate).format("DD/MM/YYYY")
+                  ) : (
+                    <LoadingPage size={32} />
+                  )}
                 </h2>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div className="orderhistory w-full ml-auto mr-auto p-10">
+      {/* <div className="orderhistory w-full ml-auto mr-auto p-10">
         <div className="px-6 pb-6 mt-6 border-t w-[100%] border-gray-300 ">
           <Tabs value="tatca">
             <TabsHeader className="bg-[#007bff]">
@@ -206,7 +212,7 @@ const UserProfile = () => {
             </TabsBody>
           </Tabs>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

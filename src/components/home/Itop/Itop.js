@@ -17,6 +17,7 @@ const Itop = () => {
         .get(`${process.env.REACT_APP_API_URL}info/`)
         .then((response) => {
           setInfo(response.data);
+          console.log(response.data);
         });
     };
     getInfoweb();
@@ -51,20 +52,12 @@ const Itop = () => {
         <ul>
           <li>
             <a href={`https://zalo.me/${info[0].zalo}`}>
-              <img
-                src={logozalo}
-                alt="Zalo chat icon"
-                className="iconZalo"
-              />
+              <img src={logozalo} alt="Zalo chat icon" className="iconZalo" />
             </a>
           </li>
           <li>
             <a href={`tel:+${info[0].hotline}`}>
-              <img
-                src={phone}
-                alt="Phone icon"
-                className="iconPhone"
-              />
+              <img src={phone} alt="Phone icon" className="iconPhone" />
             </a>
           </li>
         </ul>
