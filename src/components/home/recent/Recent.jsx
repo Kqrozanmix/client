@@ -12,6 +12,8 @@ import { Link } from "react-router-dom";
 import imgerror from "../../images/imgerror.png";
 import { getProductsAll } from "../../../features/product/productSlice";
 import { useDispatch, useSelector } from "react-redux";
+import gold from "../../images/gold.jpg";
+import king from "../../images/king.jpg";
 
 const Recent = ({ titleprodcut1, titleprodcut2 }) => {
   const [category, setCategory] = useState([]);
@@ -188,22 +190,14 @@ const Recent = ({ titleprodcut1, titleprodcut2 }) => {
             <div className="flex justify-between flex-col md:flex-row  gap-2 mt-10">
               <div className="bg-[#97DEFF]  w-[100%] p-10 flex flex-col justify-center shadow-md shadow-offset-x-2 shadow-offset-y-2 shadow-blur-2 shadow-color-gray-500 rounded-[10px] ">
                 <div className="flex flex-col justify-center items-center ">
-                  <img
-                    className="w-[100px] h-[70px] "
-                    src="D:\sacdien\src\components\images\gold.jpg"
-                    alt=""
-                  />
+                  <img className="w-[100px] h-[70px] " src={gold} alt="" />
                   <p className="text-2xl font-bold">{title1}</p>
                   <p>{descriptionsanpham1}</p>
                 </div>
               </div>
               <div className="bg-[#97DEFF] w-[100%]  p-10 flex flex-col justify-center shadow-md shadow-offset-x-2 shadow-offset-y-2 shadow-blur-2 shadow-color-gray-500 rounded-[10px] ">
                 <div className="flex flex-col justify-center items-center">
-                  <img
-                    className="w-[100px] h-[70px] "
-                    src="D:\sacdien\src\components\images\king.jpg"
-                    alt=""
-                  />
+                  <img className="w-[100px] h-[70px] " src={king} alt="" />
                   <p className="text-2xl font-bold">{titel2}</p>
                   <p>{descriptionsanpham2}</p>
                 </div>
