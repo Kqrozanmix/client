@@ -69,12 +69,12 @@ const Login = () => {
             <h1>
               Đăng nhập
               <br />
-              <span style={{ color: "#6698FF" }}> DDYB - Electronic </span>
+              <span style={{ color: "#6698FF" }}>KQ - Rozanmix</span>
             </h1>
 
             <div className="login-form">
               <div className="flex justify-center gap-10 lg:w-[500px] w-[351px]">
-                <div className="w-[260px] h-[50px] bg-gray-200 border rounded-full flex items-start align-start justify-start">
+                {/* <div className="w-[260px] h-[50px] bg-gray-200 border rounded-full flex items-start align-start justify-start">
                     <Link
                       to={""}
                       className="w-full h-full flex items-center justify-center"
@@ -96,9 +96,9 @@ const Login = () => {
                         onFailure={onFailure}
                       />
                     </Link>
-                </div>
+                </div> */}
 
-                <div className="">
+                {/* <div className="">
                   <button
                     className="w-[230px] h-[50px] bg-gray-200 border rounded-full flex items-start align-start justify-start"
                     onClick={() => login()}
@@ -110,11 +110,8 @@ const Login = () => {
                     />
                     <span className="text-black ml-[25px]">Google</span>
                   </button>
-                </div>
+                </div> */}
               </div>
-              <h6 className="pt-[20px] text-center">
-                <b>Hoặc đăng nhập bằng</b>
-              </h6>
               <form action="">
                 <input
                   type="email"
