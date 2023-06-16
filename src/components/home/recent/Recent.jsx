@@ -124,7 +124,8 @@ const Recent = ({ titleprodcut1, titleprodcut2 }) => {
               <div className="slider-title pt-5 pb-5 text-center bg-color-button flex justify-center">
                 <span className="text-2xl text-center font-bold text-white">
                   {" "}
-                  <i className="fa fa-angle-down" aria-hidden="true"></i> Sản phẩm
+                  <i className="fa fa-angle-down" aria-hidden="true"></i> Sản
+                  phẩm
                 </span>
                 <div className="brick"></div>
               </div>
@@ -189,7 +190,7 @@ const Recent = ({ titleprodcut1, titleprodcut2 }) => {
                 <div className="flex flex-col justify-center items-center ">
                   <img
                     className="w-[100px] h-[70px] "
-                    src="	https://everev.vn/wp-content/uploads/2022/11/AC-500-%C3%97-350-px.png"
+                    src="D:\sacdien\src\components\images\gold.jpg"
                     alt=""
                   />
                   <p className="text-2xl font-bold">{title1}</p>
@@ -200,7 +201,7 @@ const Recent = ({ titleprodcut1, titleprodcut2 }) => {
                 <div className="flex flex-col justify-center items-center">
                   <img
                     className="w-[100px] h-[70px] "
-                    src="https://everev.vn/wp-content/uploads/2022/11/AC-500-×-350-px-1.png"
+                    src="D:\sacdien\src\components\images\king.jpg"
                     alt=""
                   />
                   <p className="text-2xl font-bold">{titel2}</p>
