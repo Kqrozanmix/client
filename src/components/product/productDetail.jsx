@@ -166,7 +166,7 @@ const ProductDetail = () => {
                           </span>
                         </p>
                         <br />
-                        <p className="inline-block mb-1 text-md text-gray-700 ">
+                        {/* <p className="inline-block mb-1 text-md text-gray-700 ">
                           Số lượng:{" "}
                           <span className="text-md font-bold text-text-color">
                             {product.quantity}
@@ -178,7 +178,7 @@ const ProductDetail = () => {
                           <span className="text-md font-bold text-text-color">
                             {product.sold}
                           </span>
-                        </p>
+                        </p> */}
                         <div>
                           <p className="inline-block text-md text-gray-700  ">
                             Giá:{" "}

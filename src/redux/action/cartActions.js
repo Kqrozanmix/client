@@ -8,7 +8,7 @@ import {
 } from "../const/cartConstants";
 
 const api = axios.create({
-  baseURL: "https://ecom-oto.vercel.app",
+  baseURL: process.env.REACT_APP_API_URL,
 });
 
 // get the product id and the quantity of the item to add to the cart
