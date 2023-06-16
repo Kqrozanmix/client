@@ -19,6 +19,7 @@ import imgerror from "../images/imgerror.png";
 import { EditorState, convertToRaw, convertFromRaw } from "draft-js";
 import draftToHtml from "draftjs-to-html";
 import LoadingPage from "../loadingPage/LoadingPage";
+import { toast } from "react-toastify";
 
 const ContentsBlog = () => {
   const { id } = useParams();
@@ -31,12 +32,17 @@ const ContentsBlog = () => {
         .get(`${process.env.REACT_APP_API_URL}blog/blogpage?slugs=${id}`)
         .then((response) => {
           const blog = response.data;
-          setData(blog[0]);
-          setEditorContent(
-            EditorState.createWithContent(
-              convertFromRaw(JSON.parse(blog[0].description))
-            )
-          );
+          if (blog && blog.length > 0 && blog[0].description) {
+            setData(blog[0]);
+            setEditorContent(
+              EditorState.createWithContent(
+                convertFromRaw(JSON.parse(blog[0].description))
+              )
+            );
+          }
+        })
+        .catch((error) => {
+          toast.error("Không có tin tức");
         });
     };
     calldata();

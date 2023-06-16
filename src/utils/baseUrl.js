@@ -1,2 +1,2 @@
-export const base_url = "https://ecom-oto.vercel.app/api/";
-export const base_url_vercel = "https://ecom-oto.vercel.app/api/";
+export const base_url = process.env.REACT_APP_API_URL;
+export const base_url_vercel = process.env.REACT_APP_API_URL;
