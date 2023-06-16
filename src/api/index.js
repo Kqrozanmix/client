@@ -14,12 +14,12 @@ API.interceptors.request.use((req) => {
 
   return req;
 });
-export const signIn = (data) => API.post("/api/user/login", data);
+export const signIn = (data) => API.post("user/login", data);
 export const signInGoogle = (accessToken) =>
   API.post("/api/user/login", {
     googleAccessToken: accessToken,
   });
-export const signUp = (data) => API.post("/api/user/register", data);
+export const signUp = (data) => API.post("user/register", data);
 export const signUpGoogle = (accessToken) =>
   API.post("/api/user/register", {
     googleAccessToken: accessToken,
