@@ -14,7 +14,7 @@ const api = axios.create({
 // get the product id and the quantity of the item to add to the cart
 export const addItem = (id, qty) => async (dispatch, getState) => {
   try {
-    const { data } = await api.get(`/api/products/${id}`);
+    const { data } = await api.get(`products/${id}`);
 
     dispatch({
       type: CART_ADD_ITEM,
