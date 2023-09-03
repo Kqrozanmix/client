@@ -248,12 +248,12 @@ const About = () => {
       {/* <div>
         <Infomation />
       </div> */}
-      <div className="py-[50px]">
+      {/* <div className="py-[50px]">
         <HeadingAbout title="Đối tác chiến lược" />
         <div className="About_slide">
           <Sliderimg />
         </div>
-      </div>
+      </div> */}
     </>
   ) : (
     <LoadingPage size={32} />
