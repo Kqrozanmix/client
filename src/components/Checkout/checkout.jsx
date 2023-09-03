@@ -571,7 +571,7 @@ const Checkout = () => {
                       }
                     });
                   }}
-                />
+                />      
               </PayPalScriptProvider>
             ) : currentStep == 3 && payment?.name == "MoMo" ? (
               <button

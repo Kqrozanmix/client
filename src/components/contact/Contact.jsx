@@ -16,30 +16,29 @@ const Contact = () => {
   const handelSubmitContact = async (e) => {
     e.preventDefault();
     if (
-      name == "" ||
-      email == "" ||
-      description == "" ||
-      phone == "" ||
-      address == ""
+      name === "" ||
+      email === "" ||
+      description === "" ||
+      phone === "" ||
+      address === ""
     ) {
       toast.warning("Vui lòng không để trống thông tin");
       return;
-    } else if (!checkMail.test(email) || email.length == "") {
+    } else if (!checkMail.test(email) || email.length === "") {
       toast.warning("Email không hợp lệ");
       return;
     }
     await axios
       .post(`${process.env.REACT_APP_API_URL}contact/`, {
         name: name,
-        email,
-        email,
+        email: email,
         phone: phone,
         address: address,
         description: description,
       })
       .then((data) => {
         if (data.data.status) {
-          toast.success("Gửi biểu mẫu liên hệ thàng công");
+          toast.success("Gửi biểu mẫu liên hệ thành công");
           setName("");
           setEmail("");
           setPhone("");
@@ -59,15 +58,16 @@ const Contact = () => {
     };
     getInfoweb();
   }, []);
-  return info.length != 0 ? (
+
+  return info.length !== 0 ? (
     <>
       <section className="contact mb">
-        <div className="containers ">
+        <div className="containers">
           <div className="shadow mt-4 mb-4 rounded-md bg-color-card overflow-auto">
-            <h4 className="lg:text-left text-[40px] font-bold text-color-title pl-3">
+            <h4 className="lg:text-left text-40 font-bold text-color-title pl-3">
               Vị trí
             </h4>{" "}
-            <div className="flex flex-wrap p-4 ">
+            <div className="flex flex-wrap p-4">
               <iframe
                 className="rounded-lg"
                 title="Map"
@@ -80,12 +80,12 @@ const Contact = () => {
             </div>
           </div>
 
-          <div className="flex flex-wrap ">
+          <div className="flex flex-wrap">
             <div className="relative sm:flex-grow sm:flex-1">
               <h1>THÔNG TIN LIÊN HỆ</h1> <br />
               <div>
                 <p>
-                  <b className="text-[15]">{info[0].nameweb}</b>
+                  <b className="text-15">{info[0].nameweb}</b>
                   <p className="mt-5">
                     <b>Địa chỉ liên hệ:</b> {info[0].address}
                   </p>
@@ -98,39 +98,37 @@ const Contact = () => {
             <div className="relative sm:flex-grow sm:flex-1">
               <div className="shadow rounded-md bg-color-card">
                 <form onSubmit={handelSubmitContact}>
-                  <h4 className="font-blod text-color-title text-[24px]">
-                    Biểu mẫu liên hệ
+                  <h4 className="font-blod text-color-title text-center font-bold text-24">
+                    BIỂU MẪU LIÊN HỆ
                   </h4>{" "}
                   <br />
-                  <div>
-                    <input
-                      type="text"
-                      className="flex-grow border-gray-400 border-2 p-2 rounded-md mr-4 "
-                      placeholder="Họ và tên"
-                      onChange={(e) => setName(e.target.value)}
-                    />
-                    <input
-                      type="email"
-                      className="flex-grow border-gray-400 border-2 p-2 rounded-md mr-4 "
-                      placeholder="Địa chỉ email"
-                      onChange={(e) => setEmail(e.target.value)}
-                    />
-                    <input
-                      type="number"
-                      className="flex-grow border-gray-400 border-2 p-2 rounded-md mr-4 "
-                      placeholder="Số điện thoại"
-                      onChange={(e) => setPhone(e.target.value)}
-                    />
-                    <input
-                      type="text"
-                      className="flex-grow border-gray-400 border-2 p-2 rounded-md mr-4 "
-                      placeholder="Địa chỉ"
-                      onChange={(e) => setAddress(e.target.value)}
-                    />
-                  </div>
+                  <input
+                    type="text"
+                    className="flex-grow border-gray-400 border-2 p-2 rounded-md mr-4"
+                    placeholder="Họ và tên"
+                    onChange={(e) => setName(e.target.value)}
+                  />
+                  <input
+                    type="email"
+                    className="flex-grow border-gray-400 border-2 p-2 rounded-md mr-4"
+                    placeholder="Địa chỉ email"
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                  <input
+                    type="number"
+                    className="flex-grow border-gray-400 border-2 p-2 rounded-md mr-4"
+                    placeholder="Số điện thoại"
+                    onChange={(e) => setPhone(e.target.value)}
+                  />
+                  <input
+                    type="text"
+                    className="flex-grow border-gray-400 border-2 p-2 rounded-md mr-4"
+                    placeholder="Địa chỉ"
+                    onChange={(e) => setAddress(e.target.value)}
+                  />
                   <textarea
                     cols="28"
-                    rows="10"
+                    rows="5"
                     onChange={(e) => setDescription(e.target.value)}
                   ></textarea>
                   <button className="bg-color-button w-[100%] rounded-md text-white">
